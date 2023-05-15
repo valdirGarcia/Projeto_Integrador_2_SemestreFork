@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Melhorada</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" integrity="sha384-xeJqLiuOvjUBq3iGOjvSQSIlwrpqjSHXpduPd6rQpuiM3f5/ijby8pCsnbu5S81n" crossorigin="anonymous">
+</head>
+<body>
+    
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"><img src="./images/logo.svg" alt=""></a>
+            <div class="nav-links" id="navLinks">
+                <i class="bi bi-x" onclick="escondeMenu()"></i>
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/sobre.html">Sobre</a></li>
+                    <li><a href="/contato.html">Contato</a></li>
+                    <li><a href="/login.html" class="hero-btn">Login</a></li>
+                    <li id="cadastrar"><a href="/cadastro.html" class="hero-green-btn">Cadastrar</a></li>
+                </ul>
+            </div>
+            <i class="bi bi-list" onclick="apareceMenu()"></i>
+        </nav>
+
+        <h1>Contate-nos</h1>
+        
+    </section>
+
+    <section class="localizacao">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59038.57481863582!2d-47.39906800200063!3d-22.35699193516434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c870cc12a095e9%3A0x888552ad0cb59b45!2sAraras%20-%20Jardim%20Europa%2C%20Araras%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1665488260707!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <section class="imagem-empresa">
+        <img src="/images/pexels-sevenstorm-juhaszimrus-443383.jpg">
+     </div>
+
+    <section class="contate-nos">
+        <div class="row">
+            <div class="contate-nos-col">
+                <form action="form-handler.php" method="post">
+                    <input type="text" name="nome" placeholder="Nome Completo" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="text" name="assunto" placeholder="Assunto" required>
+                    <textarea rows="8" name="mensagem" placeholder="Mensagem"></textarea>
+                    <button type="submit" class="hero-btn blue-btn">Enviar mensagem</button>
+                </form>
+            </div>
+            <div class="contate-nos-col">
+                <div>
+                    <i class="bi bi-telephone-fill"></i>
+                    <span>
+                        <h5>Rua ABC, Bairro Tal</h5>
+                        <p>Araras/SP</p>
+                    </span>
+                </div>
+            </div>
+            <div class="contate-nos-col">
+                <div>
+                    <i class="bi bi-house-fill"></i>
+                    <span>
+                        <h5>+55 (19) 91234-5678</h5>
+                        <p>Seg. - Sex. 08:00 às 18:00</p>
+                    </span>
+                </div>
+            </div>
+            <div class="contate-nos-col">
+                <div>
+                    <i class="bi bi-envelope-fill"></i>
+                    <span>
+                        <h5>prof.care@mail.com.br</h5>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <p>2022 &copy; Prof. Care</p>
+        <div class="icons">
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-twitter"></i>
+            <i class="bi bi-instagram"></i>
+            <i class="bi bi-linkedin"></i>
+        </div>
+    </section>
+
+    <script src="/script.js"></script>
+
+</body>
+</html>

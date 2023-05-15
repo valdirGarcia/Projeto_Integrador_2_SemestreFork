@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prof. Care - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    
+    <section class="header">
+        <nav>
+            <a href="index.html"><img src="./images/logo.svg" alt="logo"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="bi bi-x" onclick="escondeMenu()"></i>
+                <ul>
+                    <li><a href="/index.html"><h2>Home</h2></a></li>
+                    <li><a href="/sobre.html"><h2>Sobre</h2></a></li>
+                    <li><a href="/contato.html"><h2>Contato</h2></a></li>
+                    <li><a href="/login.html" class="hero-btn"><h2>Login</h2></a></li>
+                    <li id="cadastrar"><a href="/cadastro.html" class="hero-btn"><h2>Cadastrar</h2></a></li>
+                </ul>
+                
+            </div>
+            <i class="bi bi-list" onclick="apareceMenu()"></i>
+        </nav>
+     
+
+        <div class="text-box">
+            <h1>Prof Care</h1>
+            <h2 >Somos uma plataforma que conecta profissionais da educação, com profissionais de saúde mental e psicológica.</h2>
+            <br>
+            <a href="" class="hero-btn">Saiba mais</a>
+        </div>
+    </section>
+
+    <section class="sobre">
+        <h1>Nosso diferencial</h1>
+
+        <div class="row">
+            <div class="sobre-col">
+                <img id="heart" src="./images/heart.svg" width="50" height="50" alt="">
+                <h3>Carinho</h3>
+                <p>Pensamos em todas as partes.</p>
+            </div>
+
+            <div class="sobre-col">
+                <img id="phone" src="./images/phone.svg" width="50" height="50" alt="">
+                <h3>Praticidade</h3>
+                <p>Seja atendido quando e aonde quiser.</p>
+            </div>
+        
+            <div class="sobre-col">
+                <img id="money" src="./images/money.svg" width="50" height="50" alt="">
+                <h3>Acessível</h3>
+                <p>Preço que cabe no bolso.</p>
+            </div>
+        </div>
+    </section>
+   
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="./images/img carrosel.jpg" alt="Primeiro Slide">
+                <div class="carousel-caption ">
+                    <h1>pedro otavio </h1>
+                    <p>deu certo</p>
+                  </div>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="./images/img carrosel2.jpg" alt="Segundo Slide">
+                <div class="carousel-caption ">
+                    <h1>Somos uma plataforma que conecta professores e profissionais da saúde! </h1>
+                    <p>deu certo</p>
+                  </div>
+              </div>
+             
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Anterior</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Próximo</span>
+            </a>
+          </div>
+    
+    <section class="contato">
+        <h1>Entre em contato</h1>
+        <a href="/contato.html" class="hero-btn">Contate-nos</a>
+    </section>
+
+    <section class="footer">
+        <p>2022 &copy; Prof. Care</p>
+        <div class="icons">
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-twitter"></i>
+            <i class="bi bi-instagram"></i>
+            <i class="bi bi-linkedin"></i>
+        </div>
+    </section>
+
+    <script src="/script.js"></script>
+
+</body>
+</html>

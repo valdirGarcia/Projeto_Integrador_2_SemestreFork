@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha área</title>
+    <link rel="stylesheet" href="style-dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" integrity="sha384-xeJqLiuOvjUBq3iGOjvSQSIlwrpqjSHXpduPd6rQpuiM3f5/ijby8pCsnbu5S81n" crossorigin="anonymous">
+</head>
+<body>
+    
+    <div class="app">
+        <header class="app-header">
+            <div class="app-header-logo">
+                <div class="logo">
+                    <span class="logo-icon">
+                        <img src="https://assets.codepen.io/285131/almeria-logo.svg" />
+                    </span>
+                    <h1 class="logo-title">
+                        <span>Meu painel</span>
+                        <span>Professor</span>
+                    </h1>
+                </div>
+            </div>
+            <div class="app-header-navigation">
+                <div class="tabs">
+                    <a href="/usuario.html">
+                        Geral
+                    </a>
+                    <a href="/pagamento.html">
+                        Meios de pagamento
+                    </a>
+                    <a href="info.html" class="active">
+                        Minha conta
+                    </a>
+                </div>
+            </div>
+            <div class="app-header-actions">
+                <button class="user-profile">
+                    <span>João Silva</span>
+                    <span>
+                        <img src="https://assets.codepen.io/285131/almeria-avatar.jpeg" />
+                    </span>
+                </button>
+                <div class="app-header-actions-buttons">
+                        <a class="sair-btn" href="/index.html">Sair</a>
+                    </button>
+                </div>
+            </div>
+            <div class="app-header-mobile">
+                <button class="icon-button large">
+                    <i class="ph-list"></i>
+                </button>
+            </div>
+    
+        </header>
+        <div class="app-body">
+            <div class="app-body-main-content">
+                <section class="service-section">
+                    <div class="info">
+                        <img src="https://assets.codepen.io/285131/almeria-avatar.jpeg" alt="">
+                        <h3>Editar</h3>
+                    </div>
+                    <div class="text-fields">
+                        <input type="text" placeholder="Nome">
+                        <input type="text" placeholder="E-mail">
+                        <input type="text" placeholder="Logradouro">
+                        <input type="text" placeholder="Bairro">
+                        <input type="text" placeholder="Cidade">
+                        <input type="text" placeholder="Estado">
+                        <a href="./usuario.html">Editar informações</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+
+</body>
+</html>
