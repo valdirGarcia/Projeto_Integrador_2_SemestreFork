@@ -5,7 +5,7 @@
 
 
 .container{
-width: 1400px;
+width: 1800px;
 height: 500px;
 }
 
@@ -37,4 +37,59 @@ height: 500px;
 
 .app-button-shadow{
     box-shadow: 0px 5px 10px 0px rgb(145 167 210 / 25%);
+}
+
+.app-bg-blue-3{
+    background: #4a7ae5;
+}
+
+.app-bg-blue-4{
+    background: #518aea;
+}
+
+.app-bg-white-1{
+    background: #f4f8f9;
+}
+
+.app-color-yellow-1{
+    color: #d7ac67;
+}
+
+.app-bg-yellow-2{
+  background: #fff9eb;
+}
+
+.app-bg-yellow-3{
+    background: #ffbe4e;
+}
+
+.app-border-1{
+    border: 1px solid #f4f6f9;
+}
+
+.app-color-red-1{
+    color: #e0899c;
+}
+
+.app-bg-red-2{
+    background: #fef5f6;
+}
+
+.app-color-green{
+    color: #0cbda8;
+}
+
+.active{
+    position: relative;
+    box-shadow: 6px -6px 11px 0 rgb(0 0 0 / 8%);
+}
+
+.active::before{
+    position: absolute;
+    content: '';
+    width: 4px;
+    height: 55%;
+    background-color: #346ee1;
+    top: 20px;
+    left: 0;
 }
