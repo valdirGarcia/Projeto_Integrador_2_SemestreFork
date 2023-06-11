@@ -52,6 +52,33 @@ body {
     
 }
 
+.msg.container{
+    background-color: #eee;
+    padding: 15px;
+    
+
+}
+
+.msg{
+    width:60%;
+    margin: 0 auto;
+    padding:  10px;
+    border: solid 1px #0e0d0d;
+    text-align: center;
+}
+
+.msg.error{
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+}
+
+.msg.success {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+}
+
 
 .login {
 position: relative;
@@ -205,7 +232,7 @@ button{
 
 #overlayBtn {
     cursor: pointer;
-    position: absolute;
+    position: relative;
     left: 50%;
     top: 304px;
     transform: translateX(-50%);
