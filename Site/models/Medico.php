@@ -24,7 +24,7 @@
 
     public function buildMedico($data); //construção do objeto
     public function create(Medico $Medico, $authMedico = false); // criação do usuario e podendo fazer o login
-    public function update(Medico $Medico,); //update do usuario no sistema
+    public function update(Medico $Medico, $redirect =true); //update do usuario no sistema
     public function verifyToken($protected =false); //deixando as rotas mais seguras atraves de autenticação
     public function setTokentoSession($token, $redirect=true);// direcionaar o usuario a uma pagina especifica
     public function authenticateUser($email,$senha); // autenticação do medico

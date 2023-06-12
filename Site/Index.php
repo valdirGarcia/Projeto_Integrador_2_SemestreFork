@@ -3,8 +3,27 @@
  require_once("global.php");
  require_once("conexao.php");
 
-?>
+ 
 
+ 
+ 
+ 
+ 
+ if(!empty($flassMessage["msg"])){
+   //limpar msg
+   $message->clearMessage();
+ }
+ 
+ 
+ ?>
+ 
+ <!--php code -->
+ <?php if(!empty($flassMessage["msg"])): ?>
+     <div class="msg-container">
+     <p class="msg<?= $flassMessage["type"]?>"><?= $flassMessage['msg']?></p>
+ </div>
+ <?php endif; ?>
+ 
 
 <!DOCTYPE html>
 <html lang="pt-br">

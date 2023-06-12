@@ -57,6 +57,26 @@ if($nome && $telefone && $email && $senha){
 }
 
 }else if($type === "login"){
+    
+
+    $email = filter_input(INPUT_POST, "email");
+    $senha = filter_input(INPUT_POST, "senha");
+
+    //tenta autenticar usuario
+    if($MedicoDAO->authenticateUser($email,$senha)){
+
+        $message->setMessage("Seja bem vindo!","success", "doctor.php");
+
+    //redireciona o usuario caso naão conseguir autenticar
+    }else{
+        
+        $message->setMessage("Usuario ou senha incorretos!!", "error","back");
+
+    }
+
+} else{
+      
+    $message->setMessage("Informações invalidas!!", "error","index.php");
 
 }
 

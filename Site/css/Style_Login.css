@@ -117,12 +117,13 @@ footer a {
 }
 
 .sign-up-container{
-    opacity: 0;
+    left: 45%;
     z-index: 1;
 }
 
 .sign-in-container{
     z-index: 2;
+    right: 45%;
 }
 
 form {

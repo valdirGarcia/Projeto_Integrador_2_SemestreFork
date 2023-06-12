@@ -49,8 +49,6 @@ if(!empty($flassMessage["msg"])){
     <link rel="stylesheet" href="css/Style_Login.css">
 </head>
 <body>
-   
-   
         <header class="header">
         <section class="flex">
           <a href="Index.php" class="logo">educa.</a>  
@@ -59,6 +57,30 @@ if(!empty($flassMessage["msg"])){
 
     
     <section class="login" id="login">
+       
+        <div class="form-container sign-in-container">
+            <form action="<?= $BASE_URL ?>auth_process.php" method="POST">
+            <input type="hidden" name="type" value="login">
+                <h1>Entrar</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your account</span>
+                <div class="infield">
+                <input type="email" id ="email" name="email" placeholder="Digite seu Email"/>
+                    <label></label>
+                </div>
+                <div class="infield">
+                <input type="password" id ="senha" name ="senha" placeholder="Senha" />
+                    <label></label>
+                </div>
+                <a href="#" class="forgot">Forgot your password?</a>
+                <button type="submit" value="login">Entrar</button>
+            </form>
+        </div>
+
         <div class="form-container sign-up-container">
             <form action="auth_process.php" method="POST">
                 <input type="hidden" name="type" value="cadastro">
@@ -78,7 +100,7 @@ if(!empty($flassMessage["msg"])){
                     <label></label>
                 </div>
                 <div class="infield">
-                    <input type="senha" id ="senha" name ="senha" placeholder="Senha" />
+                    <input type="password" id ="senha" name ="senha" placeholder="Senha" />
                     <label></label>
                 </div>
                 <div class="infield">
@@ -94,62 +116,13 @@ if(!empty($flassMessage["msg"])){
                 <button type="submit" value="Entrar">Cadastra</button>
             </form>
         </div>
-        <div class="form-container sign-in-container">
-            <form action="login_medico.php" method="POST">
-            <input type="hidden" name="type" value="login">
-                <h1>Sign in</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <span>or use your account</span>
-                <div class="infield">
-                <input type="email" id ="email" name="email" placeholder="Digite seu Email"/>
-                    <label></label>
-                </div>
-                <div class="infield">
-                <input type="senha" id ="senha" name ="senha" placeholder="Senha" />
-                    <label></label>
-                </div>
-                <a href="#" class="forgot">Forgot your password?</a>
-                <input type="submit" value="Entrar">
-            </form>
-        </div>
-        <div class="overlay-container" id="overlayCon">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button>Sign In</button>
-                </div>
-                <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
-                    <button>Sign Up</button>
-                </div>
-            </div>
-            <button id="overlayBtn"></button>
-        </div>
+       
+                
         
     </section>
+    
 
     
-<!-- js code -->
-<script>
-    const container = document.getElementById('login');
-    const overlaycon = document.getElementById('overlaycon');
-    const overlayBtn = document.getElementById('overlayBtn');
-
-    overlayBtn.addEventListener('click', ()=> {
-      container.classList.toggle('right-panel-active');
-
-      overlayBtn.classList.remove('btnScaled');
-      window.requestAnimationFrame( ()=>{
-          overlayBtn.classList.add('btnScaled');
-      })
-    });
-  </script>
 
 
 
