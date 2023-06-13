@@ -53,22 +53,23 @@ class MedicoDAO implements MedicoDAOInterface{
 
     public function update(Medico $Medico, $redirect= true) {
 
+      
       $stmt = $this->conn->prepare("UPDATE medico SET
-      nome = :nome,
-      telefone = :telefone,
-      email = :email,
-      sexo = :sexo,
-      token = :token
+       nome = :nome,
+       telefone = :telefone,
+       email = :email,
+       sexo = :sexo,
+       token = :token
       where id_medico = :id_medico
 
       ");
 
-      $stmt->bindParam(":nome",$Medico->nome);
-      $stmt->bindParam(":telefone",$Medico->telefone);
-      $stmt->bindParam(":email", $Medico->email);
-      $stmt->bindParam(":sexo", $Medico->sexo);
-      $stmt->bindParam(":token", $Medico->token);
-      $stmt->bindParam(":id", $Medico->id_medico);
+      $stmt->bindParam(":nome", $Medico->nome);
+       $stmt->bindParam(":telefone", $Medico->telefone);
+       $stmt->bindParam(":email", $Medico->email);
+        $stmt->bindParam(":sexo", $Medico->sexo);
+        $stmt->bindParam(":token", $Medico->token);
+      $stmt->bindParam(":id_medico", $Medico->id_medico);
 
 
       $stmt->execute();
@@ -121,33 +122,42 @@ class MedicoDAO implements MedicoDAOInterface{
     }
 
     public function authenticateUser($email,$senha) {
-
+       
       $Medico =$this->findByEmail($email);
+      
       if($Medico) {
+         
+        
+       //discripitar a senha
 
+
+         
          //checar se as senhas batem
-        if(password_verify($senha, $Medico->senha)){
-
+        if($senha ==  $Medico->senha){
+         
              //gerar um token e inserir na session
         $token = $Medico->generateToken();
-
+            
         $this->setTokentoSession($token,false);
         
         //atualizar token no usuario
         $Medico->token = $token;
 
-        $this->update($Medico, false);
+        $this->update($Medico, true);
 
         return true;
          
 
 
         } else{
+          
 
           return false;
         }
 
       }else{
+        
+       
            return false;
 
       }

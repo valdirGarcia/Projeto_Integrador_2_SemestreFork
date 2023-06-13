@@ -13,10 +13,10 @@
       return bin2hex(random_bytes(50)); //cria uma string e a modifica  deixando a mais complexa
     }
 
-    public function generatePassword($senha) {
-      return password_hash($senha, PASSWORD_DEFAULT);
-
-    }
+    //public function generatePassword($senha) {
+     // return password_hash($senha, PASSWORD_DEFAULT);
+        
+    //}
   }
 
   //metodos que o DAO precisa ter 
@@ -33,5 +33,6 @@
     public function destroyToken();
     public function findById($id_medico);
     public function changePassword(Medico $Medico);//verificação para troca de senha
+  
 
   }

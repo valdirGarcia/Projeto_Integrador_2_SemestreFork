@@ -76,39 +76,11 @@
                 <input type="submit" value="Entrar">
             </form>
         </div>
-        <div class="overlay-container" id="overlayCon">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button>Sign In</button>
-                </div>
-                <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
-                    <button>Sign Up</button>
-                </div>
-            </div>
-            <button id="overlayBtn"></button>
-        </div>
+        
     </section>
 
     
-<!-- js code -->
-<script>
-    const container = document.getElementById('login');
-    const overlaycon = document.getElementById('overlaycon');
-    const overlayBtn = document.getElementById('overlayBtn');
 
-    overlayBtn.addEventListener('click', ()=> {
-      container.classList.toggle('right-panel-active');
-
-      overlayBtn.classList.remove('btnScaled');
-      window.requestAnimationFrame( ()=>{
-          overlayBtn.classList.add('btnScaled');
-      })
-    });
-  </script>
 
 
 </body>

@@ -9,7 +9,7 @@
 
 
 $message = new Message($BASE_URL);
-//$flassMessage = $message->getMessage(); parte para verificar os campos de cadastro 
+
 
 $flassMessage= $message->getMessage();
 
@@ -51,7 +51,7 @@ if(!empty($flassMessage["msg"])){
 <body>
         <header class="header">
         <section class="flex">
-          <a href="Index.php" class="logo">educa.</a>  
+          <a href="Index.php" class="logo">Profcare</a>  
           <a href="Index.php" class="logo">Aréa do Medico <i class="fas fa-user-md r"></i></a> 
         </section>
 

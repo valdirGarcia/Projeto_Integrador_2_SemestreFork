@@ -8,6 +8,10 @@
  $message = new Message ($BASE_URL);
  $MedicoDAO = new MedicoDAO($conn,$BASE_URL);
 
+
+
+ 
+
  //resgata o tipo do formulario
  $type = filter_input(INPUT_POST, "type");
 
@@ -30,7 +34,7 @@ if($nome && $telefone && $email && $senha){
 
         //criação de token e senha
         $MedicoToken = $Medico->generateToken();
-        $finalPassword = $Medico->generatePassword($senha);
+      //  $finalPassword = $Medico->generatePassword($senha);
 
 
        
@@ -38,7 +42,7 @@ if($nome && $telefone && $email && $senha){
        $Medico->telefone = $telefone;
        $Medico->email = $email;
        $Medico->sexo = $sexo;
-       $Medico->senha = $finalPassword;
+       $Medico->senha = $senha;
        $Medico->token = $MedicoToken;
 
        $auth = true;
@@ -69,9 +73,9 @@ if($nome && $telefone && $email && $senha){
 
     //redireciona o usuario caso naão conseguir autenticar
     }else{
-        
-        $message->setMessage("Usuario ou senha incorretos!!", "error","back");
-
+       
+        //$message->setMessage("Usuario ou senha incorretos!!", "error","back");
+         
     }
 
 } else{
