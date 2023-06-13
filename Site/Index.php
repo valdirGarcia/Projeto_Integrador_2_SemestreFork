@@ -51,7 +51,7 @@
     <!-- header section starts -->
      <header class="header">
       <section class="flex">
-        <a href="#home" class="logo">educa.</a>
+        <a href="#home" class="logo">ProfCare</a>
         <nav class="navbar">
             <a href="#home">Home</a>
             <a href="Login-Professor.php">Professor </a>
@@ -69,7 +69,7 @@
      <section class="home" id="home">
         <div class="row">
             <div class="content">
-                <h3>Online<span>education</span></h3>
+                <h3>Prof<span>Care</span></h3>
                 <a href="#contact" class="btn">contact us</a>
             </div>
 

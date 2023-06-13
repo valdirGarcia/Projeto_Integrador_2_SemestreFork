@@ -1,13 +1,15 @@
 <?php
 
+
+ require_once("models/Message.php");
+ require_once("dao/ProfessorDAO.php");
  require_once("global.php");
  require_once("conexao.php");
- require_once("models/Message.php");
- require_once("dao/MedicoDAO.php");
+ //verifica se o usuario esta autenticado
+ $Professor = new Professor();
+ $ProfessorDAO = new ProfessorDAO($conn,$BASE_URL);
  
- $MedicoDAO = new MedicoDAO($conn,$BASE_URL);
- 
-$MedicoData = $MedicoDAO->verifyToken(true);
+$ProfessorData = $ProfessorDAO->verifyToken(true);
 
 
 
@@ -52,11 +54,13 @@ $MedicoData = $MedicoDAO->verifyToken(true);
       <img src="" alt="">
     </div>
 
- <form action="" method="post"> 
-    <span>your name</span>
-    <Input type="text" required placeholder="enter your full name" maxlength="50"
-    name="name" class="box">
+ <form action="<?=$BASE_URL?>cadastro_process.php" id="add-consulta-form" method="post"> 
+    <span>Data</span>
+    <Input type="date" required placeholder="Insira a data da consulta" maxlength="50"
+      id="data" name="data" class="box">
 
+      <input type="hidden" value="create" class="btn" name="type"> 
+<!-- 
     <span>your email</span>
     <Input type="email" required placeholder="enter your valie email" maxlength="50"
     name="email" class="box">
@@ -66,15 +70,15 @@ $MedicoData = $MedicoDAO->verifyToken(true);
       max="99999999999" min="0" name="number" class="box" onkeypress="if(this.value.
       length == 10) return false;">
 
-     <span>select gender</span>
+     <span>select gender</span> 
      <div class="radio">
         <input type="radio" name="gender" value="male" id="male">
         <label for="male">male</label>
         <input type="radio" name="gender" value="female" id="female">
         <label for="female">female</label>
-     </div>
-    <input type="submit" value="send message" class="btn" name="send"> 
-   
+     </div> -->
+    
+  
  </form>
 
  </div>
@@ -84,7 +88,7 @@ $MedicoData = $MedicoDAO->verifyToken(true);
 <!-- contact section ends -->
 
       <section class="flex">
-      <a href="doctor.php"><button class="btn">Voltar</button>
+      <a href="paciente.php"><button class="btn">Voltar</button>
        
       </section>
 

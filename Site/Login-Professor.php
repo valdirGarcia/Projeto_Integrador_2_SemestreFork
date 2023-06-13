@@ -1,3 +1,42 @@
+
+<?php
+
+ require_once("global.php");
+ require_once("conexao.php");
+ require_once("models/Message.php");
+ 
+ 
+
+
+$message = new Message($BASE_URL);
+
+
+$flassMessage= $message->getMessage();
+
+if(!empty($flassMessage["msg"])){
+  //limpar msg
+  $message->clearMessage();
+}
+
+
+?>
+
+<!--php code -->
+<?php if(!empty($flassMessage["msg"])): ?>
+    <div class="msg-container">
+    <p class="msg<?= $flassMessage["type"]?>"><?= $flassMessage['msg']?></p>
+</div>
+<?php endif; ?>
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -18,46 +57,12 @@
         </section>
 
     
-    <section class="login" id="login">
-        <div class="form-container sign-up-container">
-            <form action="#">
-                <h1>Create Account</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <span>or use your email for registration</span>
-                <div class="infield">
-                    <input type="text" placeholder="Name" />
-                    <label></label>
-                </div>
-                <div class="infield">
-                    <input type="email" placeholder="Email" name="email"/>
-                    <label></label>
-                </div>
-                <div class="infield">
-                    <input type="password" placeholder="Password" />
-                    <label></label>
-                </div>
-                <div class="infield">
-                    <input type="telefone" placeholder="telefone" />
-                    <label></label>
-                    <select name="sexo" id="sexo">
-                        <option value="masculino">Masculino</option>
-                        <option value="feminino">Feminino</option>
-                       </select>
-                       <select name="funcao" id="funcao">
-                        <option value="professor">Professor</option>
-                        <option value="medico">Medico</option>
-                       </select>
-                </div>
-                <button type="submit" value="Entrar">Cadastrar</button>
-            </form>
-        </div>
+   <section class="login" id="login">
+       
         <div class="form-container sign-in-container">
-            <form action="login.php" method="POST">
-                <h1>Sign in</h1>
+            <form action="<?= $BASE_URL ?>professor_process.php" method="POST">
+            <input type="hidden" name="type" value="login">
+                <h1>Entrar</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
@@ -65,20 +70,57 @@
                 </div>
                 <span>or use your account</span>
                 <div class="infield">
-                    <input type="email" placeholder="Email" name="email"/>
+                <input type="email" id ="email" name="email" placeholder="Digite seu Email"/>
                     <label></label>
                 </div>
                 <div class="infield">
-                    <input type="password" placeholder="Password" />
+                <input type="password" id ="senha" name ="senha" placeholder="Senha" />
                     <label></label>
                 </div>
                 <a href="#" class="forgot">Forgot your password?</a>
-                <input type="submit" value="Entrar">
+                <button type="submit" value="login">Entrar</button>
             </form>
         </div>
+
+        <div class="form-container sign-up-container">
+            <form action="professor_process.php" method="POST">
+                <input type="hidden" name="type" value="cadastro">
+                <h1>Criar Conta</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                <div class="infield">
+                    <label for ="nome"></label>
+                    <input type="text" id ="nome" name="nome" placeholder="Digite seu nome" />
+                </div>
+                <div class="infield">
+                    <input type="email" id ="email" name="email" placeholder="Email"/>
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <input type="password" id ="senha" name ="senha" placeholder="Senha" />
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <input type="telefone" id="telefone" name ="telefone" placeholder="telefone" />
+                    <label></label>
+                </div>
+                <div>
+                    <select type="sexo" name="sexo" id="sexo" placeholder="sexo">
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+                       </select>       
+                </div>
+                <button type="submit" value="Entrar">Cadastra</button>
+            </form>
+        </div>
+       
+                
         
     </section>
-
     
 
 
