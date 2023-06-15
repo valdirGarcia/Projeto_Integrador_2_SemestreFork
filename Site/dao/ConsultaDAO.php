@@ -112,6 +112,21 @@ $stmt =$this->conn->prepare("INSERT INTO consulta(
     }
     public function update(Consulta $consulta) {
 
+
+        $stmt= $this->conn->prepare("UPDATE consulta SET
+        date = :date
+        where id_consulta = :id_consulta
+        ");
+
+       $stmt->bindParam(":date", $consulta->date);
+
+
+       $stmt->execute();
+        
+       $this->message->setMessage("Data da consulta alterada  ","success", "doctor.php");
+
+
+
     }
     public function destroy($id_consulta) {
 
