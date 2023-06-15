@@ -37,7 +37,26 @@
     public function getLatestConsulta() {
 
     }
-    public function getConsultaByMedico($id_med) {
+    public function getConsultaByMedico($id_medico) {
+
+        $consulta  = [];
+        $stmt = $this->conn->prepare("SELECT a.id_consulta, b.nome ,b.telefone ,a.date FROM consulta a inner join medico b on a.id_med=b.id_medico 
+                                       WHERE id_med= :id_med");
+        
+        
+        $stmt->bindParam(":id_med", $id_medico);
+
+        $stmt->execute();
+
+
+        if($stmt->rowCount()>0){
+            $consultaArray= $stmt->fetchAll();
+            foreach($consultaArray as $consulta) {
+                $consulta[] = $this->buildConsulta($consulta);
+            }
+        }
+
+        return $consulta;
 
     }
     public function getConsultaByProfessorID($id_prof) {
@@ -70,6 +89,14 @@ $stmt =$this->conn->prepare("INSERT INTO consulta(
 
     }
     public function destroy($id_consulta) {
+
+        $STMT = $this->conn->prepare("DELETE FROM consulta WHERE id_consulta= id_consulta");
+
+        $STMT->bindParam(":id_consulta",$id_consulta);
+
+        $STMT->execute();
+        $this->message->setMessage("Consulta Desmarcada  ","success", "doctor.php");
+
 
     }
 
