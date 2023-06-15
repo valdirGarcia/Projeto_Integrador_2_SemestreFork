@@ -155,7 +155,7 @@ $MedicoData = $MedicoDAO->verifyToken(true);
                                 <td>
                                     <form action="cadastro_process.php" method="POST">
                                     <input type="hidden" name="type" value="delete">
-                                <input type="hidden" name="id" value="<? $registro->id_consulta ?>">
+                                <input type="hidden" name="id" value="<?=$registro["id_consulta"]?>">
                                 <button class="flex items-center justify-center app-button-shadow w-32 py-2 round 3xl">
             
                                   <span class="ml-1 font-semibold text-md ">Excluir</span>  

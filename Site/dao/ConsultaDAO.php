@@ -63,6 +63,31 @@
 
     }
     public function findById($id_consulta) {
+          $consulta  = [];
+        $stmt = $this->conn->prepare("SELECT * FROM consulta
+                                       WHERE id_consulta= :id_consulta");
+        
+        
+        $stmt->bindParam(":id_consulta", $id_consulta);
+
+        $stmt->execute();
+
+
+        if($stmt->rowCount()>0){
+
+            $consultaData= $stmt->fetch();
+
+            $consulta = $this->buildConsulta($consultaData);
+
+            return $consulta;
+           
+        }else{
+            return false;
+        }
+
+     
+
+
 
     }
     public function create(Consulta $consulta) {
@@ -90,7 +115,7 @@ $stmt =$this->conn->prepare("INSERT INTO consulta(
     }
     public function destroy($id_consulta) {
 
-        $STMT = $this->conn->prepare("DELETE FROM consulta WHERE id_consulta= id_consulta");
+        $STMT = $this->conn->prepare("DELETE FROM consulta WHERE id_consulta= :id_consulta");
 
         $STMT->bindParam(":id_consulta",$id_consulta);
 

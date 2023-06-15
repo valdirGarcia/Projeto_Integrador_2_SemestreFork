@@ -22,7 +22,7 @@
 
   //resgatando os dados do usuario
   //$ProfessorData = $ProfessorDAO->verifyToken();
-  //$MedicoData = $MedicoDAO->verifyToken();
+  
  if($type === "create"){
 
 
@@ -60,20 +60,29 @@
 
 
  }elseif($type === "delete"){
+  
     
-    $consulta = new Consulta();
-
     //recebe os dados do form 
-    $id_consulta = filter_input(INPUT_POST,"id_consulta");
+    $id_consulta = filter_input(INPUT_POST,"id");
+
+    
+
+    $consulta = $ConsultaDAO->findById($id_consulta);
+
+    if($consulta){
 
     
 
             $ConsultaDAO->destroy($consulta->id_consulta);
 
-       
+    }else{
+
+    //  $message->setMessage("Informações invalidas!!", "error","index.php");
+
+    }
 
  }else{
 
-   $message->setMessage("Informações invalidas!!", "error","index.php");
+  // $message->setMessage("Informações invalidas!!", "error","index.php");
 
  }
