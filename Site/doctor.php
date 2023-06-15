@@ -1,16 +1,20 @@
+
 <?php
 
  require_once("global.php");
  require_once("conexao.php");
  require_once("models/Message.php");
  require_once("dao/MedicoDAO.php");
+// require_once("dao/ConsultaDAO.php");
  
+ $Medico = new Medico();
  $MedicoDAO = new MedicoDAO($conn,$BASE_URL);
- 
+// $ConsultaDAO = new ConsultaDAO($conn,$BASE_URL);
+
 $MedicoData = $MedicoDAO->verifyToken(true);
 
 
-
+//$MedicoCadastro -> $MedicoDAO->getCadastroByMedicoId($MedicoData->id_medico);
 
 ?>
 
@@ -64,7 +68,7 @@ $MedicoData = $MedicoDAO->verifyToken(true);
 
             </div>
             
-              <a href=""><button class="app-color-blue-1 font-semibold text-md app-button-shadow w-40 py-2 rounded-3xl mr-5">Alteração</button>  
+               
                 <a href="<?= $BASE_URL ?>logout.php" class="  font-semibold text-md  w-10 py-2 rounded-3xl mr-9 app-color-green ">SAIR</a>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 app-color-green mr-5">
                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z" />
@@ -94,7 +98,11 @@ $MedicoData = $MedicoDAO->verifyToken(true);
                 </div>
             </div>
             <div class="flex flex-row bg-gray p-10">
-                <table class="w-full">
+            <?php 
+                  $query =$conn->query("SELECT a.id_consulta, b.nome ,b.telefone ,a.date FROM consulta a inner join professor b on a.id_prof=b.id_professor;");
+                  $registros = $query->fetchALL(PDO :: FETCH_ASSOC);
+                  if(count($registros) >0) ?>
+                 <table class="w-full">
                     <thead>
                         <tr>
                             <th></th>
@@ -102,18 +110,19 @@ $MedicoData = $MedicoDAO->verifyToken(true);
                             <th class="text-left text-xs text-white">PACIENTE</th>
                             <th class="text-left text-xs text-white">CONTATO</th>
                             <th class="text-left text-xs text-white">CONSULTA</th>
-                            <th class="text-left text-xs text-white">CEP</th>
+                            <th class="text-left text-xs text-white"></th>
                             <th></th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
+                    <?php foreach($registros as $registro){ ?>
                         <tr class="app-border-1">
                             <td>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 app-color-green ml-3"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
                             </td>
                             <td>
-                                <div class="flex justify-center items-center rounded-md w-8 h-8  text-lg font-semibold text-white">1</div>
+                                <div class="flex justify-center items-center rounded-md w-8 h-8  text-lg font-semibold text-white"><?=$registro["id_consulta"]?> </div>
                             </td>
                             <td>
                                 <div class="flex flex-row py-3">
@@ -122,73 +131,34 @@ $MedicoData = $MedicoDAO->verifyToken(true);
                                   <i class="fas fa-graduation-cap "></i>
                                      </div>
                                     <div class="flex flex-col">
-                                        <span class="font-semibold text-sm app-color-green">Pedro,Otavio</span>
-                                        <span class="font-semibold text-xs app-color-green">homem, 20 anos</span>
+                                        <span class="font-semibold text-sm app-color-green"><?=$registro["nome"]?></span>
+                                        <span class="font-semibold text-xs app-color-green"></span>
                                     </div>
                                 </div>
                             </td>
                             <td>
-                                <span class="font-semibold text-sm app-color-green">(19)998762711</span>
+                                <span class="font-semibold text-sm app-color-green"><?=$registro["telefone"]?></span>
                             </td>
                             <td>
-                                <span class="font-semibold text-sm app-color-green">08:15AM</span>
+                                <span class="font-semibold text-sm app-color-green"><?=$registro["date"]?></span>
                             </td>
                             <td>
-                                <span class="font-semibold text-sm app-color-green">13605-334</span>
-                            </td>
-                            <td>
-                                <button class="flex items-center justify-center app-button-shadow w-32 py-2 round 3xl">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 app-color-green"><path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0118 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3l1.5 1.5 3-3.75" /></svg>
-                                    <span class="ml-1 font-semibold text-md ">Excluir</span>  
-                                </button>
-                            </td>
-                            <td>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 app-color-green"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg>
-                                  
-                            </td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr class="app-border-1">
-                            <td>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 app-color-green ml-3"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
-                            </td>
-                            <td>
-                                <div class="flex justify-center items-center rounded-md w-8 h-8  text-lg font-semibold text-white">2</div>
-                            </td>
-                            <td>
-                                <div class="flex flex-row py-3">
-                                <div class="flex flex-row pl-5 items-center">
-                                <div class="flex justify-center items-center h-9 w-9 app-color-green  rounded-xl ">
-                                  <i class="fas fa-graduation-cap "></i>
-                                     </div>
-                                    <div class="flex flex-col">
-                                        <span class="font-semibold text-sm app-color-green">Chiara,maneo</span>
-                                        <span class="font-semibold text-xs app-color-green">mulher, 19 anos</span>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="font-semibold text-sm app-color-green">(19)998762711</span>
-                            </td>
-                            <td>
-                                <span class="font-semibold text-sm app-color-green">08:15AM</span>
-                            </td>
-                            <td>
-                                <span class="font-semibold text-sm app-color-green">13605-334</span>
+                                <span class="font-semibold text-sm app-color-green"></span>
                             </td>
                             <td>
                                 <button class="flex items-center justify-center app-button-shadow w-32 py-2 round 3xl">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 app-color-green"><path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0118 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3l1.5 1.5 3-3.75" /></svg>
-                                    <span class="ml-1 font-semibold text-md ">Excluir</span>  
+                                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 app-color-green"><path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0118 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3l1.5 1.5 3-3.75" /></svg>
+                                  <span class="ml-1 font-semibold text-md ">Excluir</span>  
                                 </button>
                             </td>
                             <td>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 app-color-green"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg>
+                                <a href="edit.php"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 app-color-green"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg>
                                   
-                            </td>
+                                </td>
                         </tr>
+                        <?php  }; ?>
                     </tbody>
+                   
                 </table>
             </div>
         </div>

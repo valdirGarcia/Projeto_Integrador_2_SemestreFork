@@ -4,6 +4,7 @@
  require_once("models/Message.php");
  require_once("dao/ProfessorDAO.php");
  require_once("global.php");
+ require_once("dao/MedicoDAO.php");
  require_once("conexao.php");
  //verifica se o usuario esta autenticado
  $Professor = new Professor();
@@ -56,27 +57,30 @@ $ProfessorData = $ProfessorDAO->verifyToken(true);
 
  <form action="<?=$BASE_URL?>cadastro_process.php" id="add-consulta-form" method="post"> 
     <span>Data</span>
+    <input type="hidden" name="type" value="create">
     <Input type="date" required placeholder="Insira a data da consulta" maxlength="50"
-      id="data" name="data" class="box">
+      id="date" name="date" class="box">
 
-      <input type="hidden" value="create" class="btn" name="type"> 
-<!-- 
-    <span>your email</span>
-    <Input type="email" required placeholder="enter your valie email" maxlength="50"
-    name="email" class="box">
+      <div>
+      <select id="name" name="name">
+      <option>--selecione o Nome do medico--</option>
+         <?php
+         $query = $conn->query("SELECT * from medico ORDER BY nome ASC");
+         $registros = $query->fetchALL(PDO::FETCH_ASSOC);
 
-    <span>your number</span>
-    <Input type="number" required placeholder="enter your valie number" 
-      max="99999999999" min="0" name="number" class="box" onkeypress="if(this.value.
-      length == 10) return false;">
+           foreach($registros as $option) {
+            ?>
+              
+              <option value="<?php echo $option['id_medico']?>"><?php echo $option['nome']?></option>
 
-     <span>select gender</span> 
-     <div class="radio">
-        <input type="radio" name="gender" value="male" id="male">
-        <label for="male">male</label>
-        <input type="radio" name="gender" value="female" id="female">
-        <label for="female">female</label>
-     </div> -->
+              <?php
+           }
+           ?>
+      </select>
+      </div>
+
+      <input type="submit"  class="btn" value="adcionar consulta" > 
+
     
   
  </form>

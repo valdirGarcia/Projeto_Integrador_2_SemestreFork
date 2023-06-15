@@ -74,7 +74,7 @@ if($nome && $telefone && $email && $senha){
     //redireciona o usuario caso naão conseguir autenticar
     }else{
        
-        //$message->setMessage("Usuario ou senha incorretos!!", "error","back");
+        $message->setMessage("Usuario ou senha incorretos!!", "error","back");
          
     }
 
