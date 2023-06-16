@@ -62,8 +62,8 @@ $ConsultaDAO = new ConsultaDAO($conn, $BASE_URL);
  <form action="<?=$BASE_URL?>cadastro_process.php" id="edit-consulta-form" method="POST"> 
     <span>Data</span>
     <input type="hidden" name="type" value="update">
-    <input type="hidden" name="id_consulta" value="<?=$registro["id_consulta"]?>">
-    <Input type="date" required placeholder="Insira a data da consulta" value="<?=$registro["date"]?>" maxlength="50"
+    <input type="hidden" name="id_consulta" value="<?=$ConsultaDAO->$id_consulta?>">
+    <Input type="date" required placeholder="Insira a data da consulta" value="<?=$ConsultaDAO->$date?> " maxlength="50"
       id="date" name="date" class="box">
 
       <input type="submit"  class="btn" value="alterar consulta" > 

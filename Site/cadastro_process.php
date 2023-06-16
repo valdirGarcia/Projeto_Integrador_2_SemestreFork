@@ -21,7 +21,7 @@
 
 
   //resgatando os dados do usuario
-  //$ProfessorData = $ProfessorDAO->verifyToken();
+  $ProfessorData = $ProfessorDAO->verifyToken();
   
  if($type === "create"){
 
@@ -80,6 +80,26 @@
     //  $message->setMessage("Informações invalidas!!", "error","index.php");
 
     }
+
+ }elseif($type ==="update"){
+
+ print_r($_POST);
+  $date = filter_input(INPUT_POST, "date");
+  $id_consulta = filter_input(INPUT_POST, "id_consulta");
+  $consultaData = $ConsultaDAO->findById($id_consulta);
+  //verifica se veio alguma informaçaõ
+  if($consulta){
+
+      //edição do filme
+      $consultaData->date= $date;
+
+
+
+        $ConsultaDAO->update($consultaData);
+  }else{
+
+      // $message->setMessage("Informações invalidas!!", "error","back");
+  }
 
  }else{
 
