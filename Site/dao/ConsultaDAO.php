@@ -141,6 +141,22 @@ $stmt =$this->conn->prepare("INSERT INTO consulta(
 
     }
 
+    public function historico($numero){
+
+
+        $sql = "CALL MostrarConsultas(?)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $numero);
+        $stmt->execute();
+        $consultas = $stmt->fetchAll();
+        $this->message->setMessage("Consultas  ","success", "historico.php");
+       // return $consultas;
+
+
+
+
+    }
+
 
 
 

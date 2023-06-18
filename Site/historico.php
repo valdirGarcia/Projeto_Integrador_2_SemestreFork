@@ -1,4 +1,3 @@
-
 <?php
 
  require_once("global.php");
@@ -68,7 +67,7 @@ $MedicoData = $MedicoDAO->verifyToken(true);
 
             </div>
             
-               <a href="consultas.php"><button class="app-color-blue-1 font-semibold text-md app-button-shadow w-40 py-2 rounded-3xl mr-5">Consulta</button>
+               <a href="doctor.php"><button class="app-color-blue-1 font-semibold text-md app-button-shadow w-40 py-2 rounded-3xl mr-5">Voltar</button>
                 <a href="<?= $BASE_URL ?>logout.php" class="  font-semibold text-md  w-10 py-2 rounded-3xl mr-9 app-color-green ">SAIR</a>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 app-color-green mr-5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z" />
@@ -76,32 +75,8 @@ $MedicoData = $MedicoDAO->verifyToken(true);
                                 </svg>       
         </div>
        
-            <div class="  flex flex-row  py-5">
-                <span class="text-lg font-bold app-color-white">Home</span>
-            </div>
-            <div class="flex flex-row">
-                <div class="flex flex-col w-40 bg-gray pl-5 py-3 mr-3 rounded-tl-2xl rounded-tr-2xl bg-gray active">
-                    <span class="text-3xl app-color-white font-bold">12</span>
-                    <span class="text-md app-color-white font-semibold">Sessões de Hoje</span>
-                </div>
-                <div class="flex flex-col w-40 bg-gray pl-5 py-3 mr-3 rounded-tl-2xl rounded-tr-2xl app-bg-blue-1">
-                    <span class="text-3xl app-color-white font-bold">02</span>
-                    <span class="text-md app-color-white font-semibold">Concluídas</span>
-                </div>
-                <div class="flex flex-col w-40 bg-gray pl-5 py-3 mr-3 rounded-tl-2xl rounded-tr-2xl app-bg-blue-3">
-                    <span class="text-3xl app-color-white font-bold">0</span>
-                    <span class="text-md app-color-white font-semibold">Realocadas</span>
-                </div>
-                <div class="flex flex-col w-40 bg-gray pl-5 py-3 mr-3 rounded-tl-2xl rounded-tr-2xl app-bg-blue-4 ">
-                    <span class="text-3xl app-color-white font-bold">0</span>
-                    <span class="text-md app-color-white font-semibold">Desmarcadas</span>
-                </div>
-            </div>
+           
             <div class="flex flex-row bg-gray p-10">
-            <?php 
-                  $query =$conn->query("SELECT a.id_consulta, b.nome ,b.telefone ,a.date FROM consulta a inner join professor b on a.id_prof=b.id_professor;");
-                  $registros = $query->fetchALL(PDO :: FETCH_ASSOC);
-                  if(count($registros) >0) ?>
                  <table class="w-full">
                     <thead>
                         <tr>
@@ -116,7 +91,7 @@ $MedicoData = $MedicoDAO->verifyToken(true);
                         </tr>
                     </thead>
                     <tbody>
-                    <?php foreach($registros as $registro){ ?>
+                    <?php foreach($consultas as $registro){ ?>
                         <tr class="app-border-1">
                             <td>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 app-color-green ml-3"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
@@ -149,30 +124,13 @@ $MedicoData = $MedicoDAO->verifyToken(true);
                                
                             </td>
                             <td>
-                            <form action="edit.php" method="POST">
-                                    <input type="hidden" name="type" value="delete">
-                                <input type="hidden" name="id" value="<?=$registro["id_consulta"]?>">
-                                <button class="flex items-center justify-center app-button-shadow w-32 py-2 round 3xl">
-            
-                                  <span class="ml-1 font-semibold text-md ">Editar</span>  
-                                </button>
-                                  </form>
+                          
 
 
                            <!-- <a href="edit.php"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 app-color-green"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg> -->
                                   
                                 </td>
-                                <td>
-                                    <form action="cadastro_process.php" method="POST">
-                                    <input type="hidden" name="type" value="delete">
-                                <input type="hidden" name="id" value="<?=$registro["id_consulta"]?>">
-                                <button class="flex items-center justify-center app-button-shadow w-32 py-2 round 3xl">
-            
-                                  <span class="ml-1 font-semibold text-md ">Excluir</span>  
-                                </button>
-                                  </form>
-                                  
-                                </td>
+                               
                         </tr>
                         <?php  }; ?>
                     </tbody>

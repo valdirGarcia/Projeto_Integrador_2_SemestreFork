@@ -88,9 +88,7 @@
   $data = filter_input(INPUT_POST, "data");
   $id_consulta = filter_input(INPUT_POST, "id");
   
-  print_r($id_consulta);
-  print_r($data);
-  
+ 
   $consultaData= $ConsultaDAO->findById($id_consulta);
   //verifica se veio alguma informaçaõ
  if($consultaData){
@@ -107,6 +105,21 @@
 
       $message->setMessage("Informações invalidas!!", "error","back");
  }
+
+
+}elseif($type === "historico"){
+
+
+    $name = filter_input(INPUT_POST, "name");
+  $numero = filter_input(INPUT_POST, "numero");
+    
+//verifica se veio alguma informaçaãprint_r($_POST);
+
+//print_r($numero);
+
+$ConsultaDAO->historico($numero);
+
+
 
 
 }
