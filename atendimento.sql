@@ -26,7 +26,7 @@ DELIMITER $$
 -- Procedimentos
 --
 CREATE DEFINER=`root`@`localhost` PROCEDURE `MostrarConsultas` (IN `qtde` INT)   BEGIN
-    SELECT p.nome AS nome_professor, m.nome AS nome_medico, DATE_FORMAT(c.data, "%d/%m/%Y") AS data_consulta
+    SELECT p.nome AS nome_professor, m.nome AS nome_medico, DATE_FORMAT(c.date, "%d/%m/%Y") AS data_consulta
     FROM consulta c
     INNER JOIN professor p
 	ON c.id_prof = p.id_professor
