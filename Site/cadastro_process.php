@@ -21,11 +21,12 @@
 
 
   //resgatando os dados do usuario
-  $ProfessorData = $ProfessorDAO->verifyToken();
+ 
   
  if($type === "create"){
+    $ProfessorDAO = new ProfessorDAO ($conn,$BASE_URL);
 
-
+    $ProfessorData = $ProfessorDAO->verifyToken();
 
 
     //receber os dados dos inputs
@@ -77,32 +78,35 @@
 
     }else{
 
-    //  $message->setMessage("Informações invalidas!!", "error","index.php");
+     $message->setMessage("Informações invalidas!!", "error","index.php");
 
     }
 
  }elseif($type ==="update"){
 
- print_r($_POST);
-  $date = filter_input(INPUT_POST, "date");
-  $id_consulta = filter_input(INPUT_POST, "id_consulta");
-  $consultaData = $ConsultaDAO->findById($id_consulta);
+ 
+  $data = filter_input(INPUT_POST, "data");
+  $id_consulta = filter_input(INPUT_POST, "id");
+  
+  print_r($id_consulta);
+  print_r($data);
+  
+  $consultaData= $ConsultaDAO->findById($id_consulta);
   //verifica se veio alguma informaçaõ
-  if($consulta){
+ if($consultaData){
 
+
+    
       //edição do filme
-      $consultaData->date= $date;
+    $consultaData->date = $data;
 
-
-
-        $ConsultaDAO->update($consultaData);
-  }else{
-
-      // $message->setMessage("Informações invalidas!!", "error","back");
-  }
-
+       
+ 
+       $ConsultaDAO->update($consultaData);
  }else{
 
-  // $message->setMessage("Informações invalidas!!", "error","index.php");
-
+      $message->setMessage("Informações invalidas!!", "error","back");
  }
+
+
+}

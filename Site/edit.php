@@ -1,18 +1,26 @@
 <?php
-
-
- require_once("models/Message.php");
+ require_once("models/Medico.php");
  require_once("dao/MedicoDAO.php");
  require_once("dao/ConsultaDAO.php");
  require_once("global.php");
  require_once("conexao.php");
  //verifica se o usuario esta autenticado
+
+ $consulta = new Consulta();
  $Medico = new Medico();
+
  $MedicoDAO = new MedicoDAO($conn,$BASE_URL);
  
 $MedicoData = $MedicoDAO->verifyToken(true);
 
-$ConsultaDAO = new ConsultaDAO($conn, $BASE_URL);
+$ConsultaDAO = new ConsultaDAO($conn,$BASE_URL);
+//$ConsultaData = $ConsultaDAO->findById($id_consulta);
+
+
+
+$id_consulta = filter_input(INPUT_POST,"id");
+
+
 
 
 
@@ -62,15 +70,16 @@ $ConsultaDAO = new ConsultaDAO($conn, $BASE_URL);
  <form action="<?=$BASE_URL?>cadastro_process.php" id="edit-consulta-form" method="POST"> 
     <span>Data</span>
     <input type="hidden" name="type" value="update">
-    <input type="hidden" name="id_consulta" value="<?=$ConsultaDAO->$id_consulta?>">
-    <Input type="date" required placeholder="Insira a data da consulta" value="<?=$ConsultaDAO->$date?> " maxlength="50"
-      id="date" name="date" class="box">
+    <input  id="id" type="hidden" name="id" value="<?= $id_consulta?>">
+    <Input type="date"  value="<?= $date?>" maxlength="50" id="data" name="data" class="box">
 
       <input type="submit"  class="btn" value="alterar consulta" > 
 
-    
+      
+
   
  </form>
+
 
  </div>
  </div>

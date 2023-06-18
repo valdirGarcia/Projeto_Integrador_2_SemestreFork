@@ -119,6 +119,7 @@ $stmt =$this->conn->prepare("INSERT INTO consulta(
         ");
 
        $stmt->bindParam(":date", $consulta->date);
+       $stmt->bindParam(":id_consulta", $consulta->id_consulta);
 
 
        $stmt->execute();

@@ -149,7 +149,17 @@ $MedicoData = $MedicoDAO->verifyToken(true);
                                
                             </td>
                             <td>
-                            <a href="edit.php"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 app-color-green"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg>
+                            <form action="edit.php" method="POST">
+                                    <input type="hidden" name="type" value="delete">
+                                <input type="hidden" name="id" value="<?=$registro["id_consulta"]?>">
+                                <button class="flex items-center justify-center app-button-shadow w-32 py-2 round 3xl">
+            
+                                  <span class="ml-1 font-semibold text-md ">Editar</span>  
+                                </button>
+                                  </form>
+
+
+                           <!-- <a href="edit.php"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 app-color-green"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg> -->
                                   
                                 </td>
                                 <td>
