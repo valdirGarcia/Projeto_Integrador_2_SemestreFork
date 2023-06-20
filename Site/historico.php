@@ -91,7 +91,11 @@ $MedicoData = $MedicoDAO->verifyToken(true);
                         </tr>
                     </thead>
                     <tbody>
-                    <?php foreach($consultas as $registro){ ?>
+                    <?php
+                           // foreach($consultaArray as $consulta) {
+                                //$consulta[] = $this->buildConsulta($consulta)
+                            
+                    foreach($ConsultaDAO as $consulta){ ?>
                         <tr class="app-border-1">
                             <td>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 app-color-green ml-3"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
@@ -106,16 +110,16 @@ $MedicoData = $MedicoDAO->verifyToken(true);
                                   <i class="fas fa-graduation-cap "></i>
                                      </div>
                                     <div class="flex flex-col">
-                                        <span class="font-semibold text-sm app-color-green"><?=$registro["nome"]?></span>
+                                        <span class="font-semibold text-sm app-color-green"><?=$consulta["nome"]?></span>
                                         <span class="font-semibold text-xs app-color-green"></span>
                                     </div>
                                 </div>
                             </td>
                             <td>
-                                <span class="font-semibold text-sm app-color-green"><?=$registro["telefone"]?></span>
+                                <span class="font-semibold text-sm app-color-green"><?=$consulta["telefone"]?></span>
                             </td>
                             <td>
-                                <span class="font-semibold text-sm app-color-green"><?=$registro["date"]?></span>
+                                <span class="font-semibold text-sm app-color-green"><?=$consulta["date"]?></span>
                             </td>
                             <td>
                                 <span class="font-semibold text-sm app-color-green"></span>
@@ -132,7 +136,7 @@ $MedicoData = $MedicoDAO->verifyToken(true);
                                 </td>
                                
                         </tr>
-                        <?php  }; ?>
+                        <?php }  ; ?>
                     </tbody>
                    
                 </table>

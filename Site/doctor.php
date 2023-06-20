@@ -42,7 +42,7 @@ $MedicoData = $MedicoDAO->verifyToken(true);
     <div class="container ">
           <div class=" bg-gray flex flex-row  items-center">
             <div class="bg.green px-10 py-5">
-                <a href="Index.html" class="text-lg app-color-green font-bold">Profcare</a>
+                <a href="Index.php" class="text-lg app-color-green font-bold">Profcare</a>
             </div>
             <div class="flex flex-row pl-5 items-center">
                 <div class="flex justify-center items-center h-9 w-9 app-color-green border-solid border-4 border-green-600 rounded-xl">

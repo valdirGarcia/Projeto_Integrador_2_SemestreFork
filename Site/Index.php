@@ -70,7 +70,7 @@
         <div class="row">
             <div class="content">
                 <h3>Prof<span>Care</span></h3>
-                <a href="#contact" class="btn">contact us</a>
+                <a href="#contact" class="btn">nos contate</a>
             </div>
 
             <div class="image">
@@ -139,9 +139,8 @@
 
         <div class="content">
             <h3>Por que nos escolher?</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                 Ad sit dignissimos quas est? Deleniti, harum?</p>
-                 <a href="#contact"class="btn">contact us</a>
+            <p>Facilitando seu dia a dia e tornando mais pratico e simplificado para entrar em contato com quem se preocupa com voçê</p>
+                 <!-- <a href="#contact"class="btn">contact us</a> -->
         </div>
 
 
@@ -162,20 +161,20 @@
 
         <div class="swiper-slide slide">
             <img src="images/About us page.svg" alt="">
-            <h3>web develompment</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, quis.</p>
+            <h3>Profissionais Dedicados</h3>
+            <p>Nós da ProfCare trabalhamos duro para que a distancia não seja um problema para voçê e sua saúde mental</p>
         </div>
 
         <div class="swiper-slide slide">
             <img src="images/waterfall method.svg" alt="">
-            <h3>web develompment</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, quis.</p>
+            <h3>Constante Desenvolvimento</h3>
+            <p>A cada dia mais trazendo tecnologia e conhecimento profissional para a tela do seu aparelho, inovando nas comunicações e video chamada</p>
         </div>
 
         <div class="swiper-slide slide">
             <img src="images/About us page-rafiki.svg" alt="">
-            <h3>web develompment</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, quis.</p>
+            <h3>Interface Pratica</h3>
+            <p>Possuimos um site limpo e pratico, para os usuarios que não saem das telas e dos smartphones não sentirem um desgaste mental.</p>
         </div>
 
      </div>

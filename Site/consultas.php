@@ -58,7 +58,7 @@ $MedicoData = $MedicoDAO->verifyToken(true);
       <img src="" alt="">
     </div>
 
- <form action="<?=$BASE_URL?>cadastro_process.php" id="edit-consulta-form" method="POST"> 
+ <form action="<?=$BASE_URL?>historico.php" id="edit-consulta-form" method="POST"> 
     <span>Quantidades de consultas</span>
     <input type="hidden" name="type" value="historico">
     <!-- <input  id="id" type="hidden" name="id" value=""> -->
